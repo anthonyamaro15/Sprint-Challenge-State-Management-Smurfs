@@ -1,6 +1,6 @@
 import React from "react";
 
-const SingleCard = ({ data }) => {
+const SingleCard = ({ data, removeSmurf }) => {
   return (
     <div className="SingleCard">
       <p>
@@ -12,7 +12,7 @@ const SingleCard = ({ data }) => {
       <p>
         heigth: <span>{data.height}</span>
       </p>
-      <button>remove</button>
+      <button onClick={removeSmurf}>remove</button>
     </div>
   );
 };

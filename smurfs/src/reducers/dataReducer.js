@@ -22,7 +22,12 @@ export const dataReducer = (state = initialValue, action) => {
         loading: false,
         data: action.payload,
       };
-
+    case "ERROR":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     case "FETCHING_NEW_DATA":
       return {
         ...state,
@@ -30,18 +35,30 @@ export const dataReducer = (state = initialValue, action) => {
       };
 
     case "ADDED_DATA":
-      console.log("added data", action.payload);
       return {
         ...state,
         loading: false,
         data: action.payload,
       };
-    case "ERROR":
+    //////////
+    case "REMOVING":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "REMOVED_SMURF":
+      return {
+        ...state,
+        loading: false,
+        data: action.payload,
+      };
+    case "ERROR_REMOVING":
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
+
     default:
       return state;
   }

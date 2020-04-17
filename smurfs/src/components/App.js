@@ -17,7 +17,6 @@ const App = () => {
     axios
       .get("http://localhost:3333/smurfs")
       .then((res) => {
-        console.log(res.data);
         dispatch({ type: "NEW_DATA", payload: res.data });
       })
       .catch((err) => {
@@ -29,10 +28,32 @@ const App = () => {
     dispatch({ type: "POSTING_DATA" });
   }, []);
 
+  const removeSmurf = (id) => {
+    dispatch({ type: "REMOVING" });
+
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then((res) => {
+        console.log("please work ", res);
+        dispatch({ type: "REMOVED_SMURF", payload: res.data });
+      })
+      .catch((err) => {
+        dispatch({ type: "ERROR_REMOVING", payload: err });
+      });
+    //  axios
+    //    .delete("http://localhost:3333/smurfs", id)
+    //    .then((res) => {
+    //      console.log("removing.. ", res);
+    //      dispatch({ type: "REMOVED_SMURF", payload: res.data });
+    //    })
+    //    .catch((err) => {
+    //      dispatch({ type: "ERROR_REMOVING", payload: err });
+    //    });
+  };
   return (
     <div className="App">
       <MainForm />
-      <DisplayCards data={data} />
+      <DisplayCards data={data} removeSmurf={removeSmurf} />
     </div>
   );
 };
