@@ -23,10 +23,22 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+      -- Well to start it makes your code cleaner and it prevents what's call props drilling.
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+      -- actions are chuncks of information that sends data from your app to the redux store.
+      -- a reducer is a function that accepts an accumulator and a value and returns a new accumulation.
+      -- store is just an object that contains your application state.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+      -- application state is a global state, that all components can have access to that data. for example redux.
+      -- component state is just local state that. So you will only have accesss to to a single component.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+      -- redux-thunk is a middleware for writing async logic that interacts with redxu store. thunk is a function that takes parameters dispatch and getStore.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+      -- my favorite state managements is redux because at least for me is easier to read and i love the fact that you don't need to bring the useState hook anymore.
 
 ## Project Set Up
 
@@ -64,8 +76,8 @@ Follow these steps to set up your project:
     name: "Brainey",
     age: 200,
     height: "5cm",
-    id: 0
-  }
+    id: 0,
+  },
 ];
 ```
 
@@ -97,14 +109,14 @@ Example of object created in Smurf DB:
     name: "Brainey",
     age: 200,
     height: "5cm",
-    id: 0
+    id: 0,
   },
   {
     name: "Sleepy",
     age: 200,
     height: "5cm",
-    id: 1
-  }
+    id: 1,
+  },
 ];
 ```
 
@@ -157,7 +169,7 @@ output: [
     name: "Sleepy",
     age: 200,
     height: "5cm",
-    id: 1
-  }
+    id: 1,
+  },
 ];
 ```
