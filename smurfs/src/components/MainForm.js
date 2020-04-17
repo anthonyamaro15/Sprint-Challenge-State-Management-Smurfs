@@ -1,8 +1,10 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Formik, Form, Field } from "formik";
 import axios from "axios";
 
-const MainForm = ({ getValue }) => {
+const MainForm = () => {
+  const dispatch = useDispatch();
   return (
     <div className="form">
       <Formik
@@ -15,10 +17,10 @@ const MainForm = ({ getValue }) => {
             height,
             id: new Date().toLocaleTimeString(),
           };
+          dispatch({ type: "FETCHING_NEW_DATA" });
           axios.post("http://localhost:3333/smurfs", obj).then((res) => {
-            console.log(res);
+            dispatch({ type: "ADDED_DATA", payload: res.data });
           });
-          getValue(obj);
           resetForm();
         }}
       >

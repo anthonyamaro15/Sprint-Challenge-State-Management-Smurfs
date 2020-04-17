@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import MainForm from "./MainForm";
 import DisplayCards from "./DisplayCards";
-import "./App.css";
+import "./App.scss";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -11,8 +11,6 @@ const App = () => {
     ...state,
   }));
   const { data } = reducer.dataReducer;
-  const { inputValue } = reducer.addReducer;
-  //   console.log("adding.. ", inputValue);
 
   useEffect(() => {
     dispatch({ type: "FETCHING_DATA" });
@@ -31,21 +29,9 @@ const App = () => {
     dispatch({ type: "POSTING_DATA" });
   }, []);
 
-  //   useEffect(() => {
-  //     dispatch({ type: "ADDING_ITEM" });
-  //     axios.post("http://localhost:3333/smurfs", inputValue).then((res) => {
-  //       console.log("adding new ", res);
-  //     });
-  //   }, [inputValue]);
-
-  const getValue = (value) => {
-    //  console.log("value ", value);
-    dispatch({ type: "GET_INPUT_VALUE", payload: value });
-  };
-
   return (
     <div className="App">
-      <MainForm getValue={getValue} />
+      <MainForm />
       <DisplayCards data={data} />
     </div>
   );

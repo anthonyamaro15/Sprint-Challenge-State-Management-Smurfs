@@ -1,0 +1,19 @@
+.App {
+  border: 1px solid red;
+
+  .DisplayCard {
+    border: 1px solid blue;
+    display: flex;
+    flex-wrap: wrap;
+
+    .SingleCard {
+      border: 1px solid red;
+      width: 300px;
+      margin: 0 1rem 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

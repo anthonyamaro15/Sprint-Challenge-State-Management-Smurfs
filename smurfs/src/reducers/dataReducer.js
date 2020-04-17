@@ -22,23 +22,25 @@ export const dataReducer = (state = initialValue, action) => {
         loading: false,
         data: action.payload,
       };
+
+    case "FETCHING_NEW_DATA":
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case "ADDED_DATA":
+      console.log("added data", action.payload);
+      return {
+        ...state,
+        loading: false,
+        data: action.payload,
+      };
     case "ERROR":
       return {
         ...state,
         loading: false,
         error: action.payload,
-      };
-    default:
-      return state;
-  }
-};
-
-export const addReducer = (state = initialValue, action) => {
-  switch (action.type) {
-    case "GET_INPUT_VALUE":
-      return {
-        ...state,
-        inputValue: action.payload,
       };
     default:
       return state;
