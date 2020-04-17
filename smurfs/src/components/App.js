@@ -40,15 +40,6 @@ const App = () => {
       .catch((err) => {
         dispatch({ type: "ERROR_REMOVING", payload: err });
       });
-    //  axios
-    //    .delete("http://localhost:3333/smurfs", id)
-    //    .then((res) => {
-    //      console.log("removing.. ", res);
-    //      dispatch({ type: "REMOVED_SMURF", payload: res.data });
-    //    })
-    //    .catch((err) => {
-    //      dispatch({ type: "ERROR_REMOVING", payload: err });
-    //    });
   };
   return (
     <div className="App">
