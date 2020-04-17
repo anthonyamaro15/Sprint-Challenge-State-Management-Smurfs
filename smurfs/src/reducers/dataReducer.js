@@ -1,9 +1,4 @@
 const initialValue = {
-  inputValue: {
-    name: "",
-    age: "",
-    height: "",
-  },
   loading: false,
   data: [],
   error: "",

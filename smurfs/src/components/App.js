@@ -10,7 +10,7 @@ const App = () => {
   const reducer = useSelector((state) => ({
     ...state,
   }));
-  const { data } = reducer.dataReducer;
+  const { data, loading } = reducer.dataReducer;
 
   useEffect(() => {
     dispatch({ type: "FETCHING_DATA" });
@@ -44,7 +44,11 @@ const App = () => {
   return (
     <div className="App">
       <MainForm />
-      <DisplayCards data={data} removeSmurf={removeSmurf} />
+      {!loading ? (
+        <DisplayCards data={data} removeSmurf={removeSmurf} />
+      ) : (
+        <h1 className="loading">loading...</h1>
+      )}
     </div>
   );
 };
